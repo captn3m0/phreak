@@ -22,8 +22,7 @@ setup(name='phreak',
           'phreak.data': ['phreak.png']
       },
       install_requires=[
-          'requests>=2.2.1',
-          'mixpanel-py>=3.0.0'
+          'requests>=2.2.1'
       ],
       entry_points={
           'console_scripts': ['phreak = phreak:main'],
