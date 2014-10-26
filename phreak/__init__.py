@@ -16,7 +16,7 @@ from producthunt import ProductHunt
 
 class PHreak:
     
-    ABOUT_URL = "https://captnemo.in/phreak/"
+    ABOUT_URL = "http://captnemo.in/phreak/"
 
     def __init__(self, args):
         # create an indicator applet
