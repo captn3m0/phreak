@@ -12,8 +12,3 @@ insert_final_newline = true
 [*.py]
 indent_style = space
 indent_size = 4
-
-# Matches the exact files either package.json or .travis.yml
-[{package.json,.travis.yml}]
-indent_style = space
-indent_size = 2

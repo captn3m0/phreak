@@ -4,7 +4,7 @@ PHreak is a simple linux app that sits in your system tray and shows you current
 
 ![Screenshot](http://i.imgur.com/33AGurt.png)
 
-PHreak was made for the Product Hunt Hackathon and uses the official PH API.
+PHreak was made for the Product Hunt Hackathon and uses the official Product Hunt API.
 
 ###Requirements:
 

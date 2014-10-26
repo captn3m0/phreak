@@ -52,8 +52,9 @@ class PHreak:
 
         self.menu.show()
 
-        self.ind.set_menu(self.menu)
         self.refresh()
+        self.ind.set_menu(self.menu)
+
 
     def showAbout(self, widget):
         """Handle the about btn"""
