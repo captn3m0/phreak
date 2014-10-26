@@ -2,9 +2,18 @@ PHreak
 ======
 PHreak is a simple linux app that sits in your system tray and shows you current top stories from Product Hunt.
 
-![Screenshot](http://i.imgur.com/33AGurt.png)
+![Screenshot of application](http://i.imgur.com/33AGurt.png)
 
-PHreak was made for the Product Hunt Hackathon and uses the official Product Hunt API.
+![Screenshot of notification popup](https://i.imgur.com/xhsAaGX.png)
+
+PHreak was made for the Product Hunt Hackathon and uses the official Product Hunt API. 
+
+###Features
+
+- Shows latest top 10 hunts
+- Refresh at will (5 minutes auto-refresh)
+- Automatic GTK Notifications when there are new hunts, so you don't need to keep checking (via libnotify)
+- Opens both discussion and product links in your default browser
 
 ###Requirements:
 
