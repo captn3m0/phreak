@@ -11,5 +11,6 @@ class ProductHunt:
             'Accept'      : 'application/json',
             'Authorization':'Bearer '+ACCESS_TOKEN
         }
-        r = requests.get(API_ROOT + "posts", headers=headers)
-        return r.json()['posts']
+        r = requests.get(API_ROOT + "posts/all?per_page=10", headers=headers)
+        posts = r.json()['posts']
+        return posts
