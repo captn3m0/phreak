@@ -103,7 +103,7 @@ class PHreak:
     def refresh(self, widget=None, no_timer=False):
         """Refreshes the menu """
 
-        data = list(reversed(ProductHunt.getToday()))
+        data = list(reversed(ProductHunt.getPosts()))
         
         #Remove all the current stories
         for i in self.menu.get_children():
