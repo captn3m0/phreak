@@ -9,7 +9,7 @@ if sys.version_info < (2, 7):
     requirements.append('argparse')
 
 setup(name='phreak',
-      version='0.0.1',
+      version='0.0.2',
       description='Product Hunt app that sits in your System Tray',
       long_description='PHreak is a simple Product Hunt linux application that lets you current PH stories in your System Tray.',
       keywords='product hunt producthunt phreak tray',
