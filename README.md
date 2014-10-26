@@ -22,4 +22,10 @@ Then, you invoke it via the `phreak` command.
 
 ###Disclaimer
 
-PHreak was made for a hackathon. As such, there are no promises that it will work on your system. It was tested on an Ubuntu 12.04 + Cinnamon system. Your mileage may vary.
+PHreak was made for a hackathon. As such, there are no promises that it will work on your system. It was tested on the following setups:
+
+1. Ubuntu 14.04 + Cinnamon
+2. Debian wheezy (7.6) + KDE (with `python-appindicator` installed)
+3. Ubuntu 14.04 + Unity
+
+Your mileage may vary.
