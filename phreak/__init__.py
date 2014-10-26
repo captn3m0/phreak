@@ -11,19 +11,23 @@ import argparse
 import pkg_resources
 import signal
 import os
+try:
+    import pynotify
+except ImportError:
+    pynotify = None
 
 from producthunt import ProductHunt
 
 class PHreak:
     
     ABOUT_URL = "http://captnemo.in/phreak/"
+    icon_filename = os.path.abspath(pkg_resources.resource_filename('phreak.data', 'phreak.png'))
 
     def __init__(self, args):
         # create an indicator applet
         self.ind = appindicator.Indicator("PHreak", "phreak", appindicator.CATEGORY_APPLICATION_STATUS)
         self.ind.set_status(appindicator.STATUS_ACTIVE)
-        icon_filename = os.path.abspath(pkg_resources.resource_filename('phreak.data', 'phreak.png'))
-        self.ind.set_icon(icon_filename)
+        self.ind.set_icon(PHreak.icon_filename)
         self.db = set()
 
         # create a menu
@@ -51,6 +55,9 @@ class PHreak:
         self.menu.append(btnQuit)
 
         self.menu.show()
+
+        if pynotify:
+            pynotify.init("phreak")
 
         self.refresh()
         self.ind.set_menu(self.menu)
@@ -103,6 +110,8 @@ class PHreak:
     def refresh(self, widget=None, no_timer=False):
         """Refreshes the menu """
 
+        old_hunts = self.posts_to_set(ProductHunt.posts)
+
         data = list(reversed(ProductHunt.getPosts()))
         
         #Remove all the current stories
@@ -111,10 +120,27 @@ class PHreak:
                 self.menu.remove(i)
 
         #Add back all the refreshed news
+
         for index, item in enumerate(data):
             self.addItem(item)
+
+        # Send notifications if needed
+        if pynotify:
+            new_hunts = self.posts_to_set(ProductHunt.posts)
+
+            difference = new_hunts - old_hunts
+
+            if len(difference) > 0:
+                pynotify.Notification("Product Hunt", str(len(difference))+" new hunts", PHreak.icon_filename).show()
+
         if not no_timer:
             gtk.timeout_add(10 * 30 * 1000, self.refresh, widget, no_timer)
+
+    def posts_to_set(self, posts):
+        result = set()
+        for index, item in enumerate(posts):
+            result.add(item['id'])
+        return result
 
 def main():
     parser = argparse.ArgumentParser(description='Product Hunt in your System Tray')
